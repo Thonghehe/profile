@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div>
+        <h1>My Introduce</h1>
+        <h2>Tôi tên là thông</h2>
+        <p>Đố kiếm ai đẹp trai hơn tôi</p>
+        <img src="" alt="">
+    </div>
+    <div class="heart"></div>
+    <div class="thumbnail-container">
+        <img id="large-image" src="" alt="Large Image">
+        <div class="thumbnails"></div>
+        <script>
+            const images = {
+                image1: './image1.jpg',
+                image2: 'image2.jpg',
+                image3: 'image3.jpg',
+                image4: 'image4.jpg'
+            };
+
+            const largeImage = document.getElementById('large-image');
+            const thumbnailsContainer = document.querySelector('.thumbnails');
+
+            Object.values(images).forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Thumbnail';
+                img.classList.add('thumbnail');
+                img.addEventListener('mouseover', () => {
+                    largeImage.src = src;
+                });
+                thumbnailsContainer.appendChild(img);
+            });
+
+            // Set the initial large image
+            largeImage.src = images.image1;
+        </script>
+</body>
+
+</html>
